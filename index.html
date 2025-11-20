@@ -1,77 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Komal Porwal — Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Komal Porwal | Portfolio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f8f9fa;
+            color: #222;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #444;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+
+        /* Navigation bar */
+        nav {
+            background: #222;
+            padding: 12px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Card styling */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+
+        .project-title {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #222;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .profile-img {
+            width: 160px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 20px;
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-      <h1 class="site-title">Komal Porwal</h1>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        
+        <!-- Profile -->
+        <img src="your-photo.jpg" class="profile-img" alt="Komal Profile">
+
+        <h1>KOMAL PORWAL</h1>
+        <p class="subtitle">Robotics | Embedded Systems | AI/ML | UAV Systems</p>
+
+        <!-- About Section -->
+        <div class="card" id="about">
+            <h2>About Me</h2>
+            <p>
+                I am an engineering student with hands-on experience in robotics, UAV design, embedded systems,
+                and AI/ML. I have worked on projects involving drone stabilization, computer vision,
+                power systems fault detection, and autonomous vehicles.
+            </p>
+        </div>
+
+        <!-- Projects Section -->
+        <h2 style="margin-top: 40px;">Projects</h2>
+
+        <div class="card">
+            <h3 class="project-title">🔹 Autonomous Drone for Agriculture</h3>
+            <p>Designed and stabilized a UAV for fertilizer dispensing using computer vision.</p>
+            <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank">View Project</a>
+        </div>
+
+        <div class="card">
+            <h3 class="project-title">🔹 Fault Detection in Power Systems (Published Paper)</h3>
+            <p>Implemented ML models (DT, SVM, ANN) for fault prediction with 95% accuracy.</p>
+            <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank">View Code</a>
+        </div>
+
+        <div class="card">
+            <h3 class="project-title">🔹 ROS2 Robotics Projects</h3>
+            <p>Implemented SLAM, path planning, and sensor fusion using ROS2 Foxy.</p>
+            <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank">View Repository</a>
+        </div>
+
+        <!-- Contact -->
+        <div class="card" id="contact">
+            <h2>Contact</h2>
+            <p>Email: komal.porwal@colorado.edu.com</p>
+            <p>GitHub: github.com/Komal-Porwal</p>
+            <p>LinkedIn: linkedin.com/in/komal-porwal-967138219/</p>
+        </div>
+
     </div>
-  </header>
 
-  <section id="hero" class="hero container">
-    <div class="hero-text">
-      <h2>Hi, I’m <span> Komal </span></h2>
-      <p>I build robotics systems, embedded hardware, and autonomous software.</p>
-      <p><a class="btn" href="#projects">See My Work</a></p>
+    <!-- Footer -->
+    <div class="footer">
+        © 2025 Komal Porwal — All Rights Reserved
     </div>
-    <div class="hero-image">
-      <img src="assets/images/profile.jpg" alt="Profile Photo">
-    </div>
-  </section>
 
-  <section id="about" class="container section about">
-    <h2>About Me</h2>
-    <p>I’m a robotics / embedded systems engineer … (write your short bio here).</p>
-  </section>
-
-  <section id="projects" class="container section projects">
-    <h2>Projects</h2>
-    <div id="projects-grid" class="grid">
-      <!-- JS will inject project cards here -->
-      <div class="card">Loading projects…</div>
-    </div>
-  </section>
-
-  <section id="skills" class="container section skills">
-    <h2>Skills</h2>
-    <ul class="skill-list">
-      <li>ROS2</li>
-      <li>Python</li>
-      <li>C++</li>
-      <li>FPGA / Embedded</li>
-      <li>Machine Learning</li>
-    </ul>
-  </section>
-
-  <section id="contact" class="container section contact">
-    <h2>Contact</h2>
-    <p>You can reach me at <a href="mailto:komal.porwal@colorado.edu">komal.porwal@colorado.edu</a></p>
-    <p>
-      <a href="https://github.com/KOMAL-PORWAL" target="_blank">GitHub</a> •
-      <a href="https://www.linkedin.com/in/komal-porwal-967138219/" target="_blank">LinkedIn</a>
-    </p>
-  </section>
-
-  <footer class="footer container">
-    <p>© <span id="year"></span> Your Name</p>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-
