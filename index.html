@@ -99,6 +99,45 @@
             color: #c026d3;
             border-bottom: 1px solid #fbbf24;
         }
+        .project-img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 9px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 24px rgba(77,110,242,0.07);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.18s;
+}
+.project-card:hover .project-img {
+    transform: scale(1.045) rotate(-1.5deg);
+    box-shadow: 0 6px 28px rgba(251,191,36,0.19);
+}
+.project-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 28px;
+    background: linear-gradient(110deg, #4f46e5 0%, #fbbf24 100%);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(51,65,85,0.09);
+    transition: background .16s, transform .16s, box-shadow .16s;
+    letter-spacing: 0.04em;
+}
+.project-btn:hover {
+    background: linear-gradient(110deg, #fbbf24 20%, #4f46e5 90%);
+    color: #fff;
+    transform: translateY(-3px) scale(1.09);
+    box-shadow: 0 12px 28px rgba(172,146,252,0.28);
+}
+ul {
+    margin-left: 18px;
+    margin-bottom: 12px;
+}
+
         /* Section headers */
         h2 {
             color: #334155;
@@ -149,22 +188,39 @@
             </p>
         </div>
         <!-- Projects Section -->
-        <h2 id="projects" style="margin-top: 40px;">Projects</h2>
-        <div class="card">
-            <h3 class="project-title">🔹 Autonomous Drone for Agriculture</h3>
-            <p>Designed and stabilized a UAV for fertilizer dispensing using computer vision.</p>
-            <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-            <h3 class="project-title">🔹 Fault Detection in Power Systems (Published Paper)</h3>
-            <p>Implemented ML models (DT, SVM, ANN) for fault prediction with 95% accuracy.</p>
-            <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank">View Code</a>
-        </div>
-        <div class="card">
-            <h3 class="project-title">🔹 ROS2 Robotics Projects</h3>
-            <p>Implemented SLAM, path planning, and sensor fusion using ROS2 Foxy.</p>
-            <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank">View Repository</a>
-        </div>
+       <!-- Autonomous Drone for Agriculture -->
+<div class="card project-card">
+    <img src="drone_vision.jpg" alt="Autonomous UAV Agriculture" class="project-img">
+    <h3 class="project-title">🔹 Autonomous Drone for Agriculture</h3>
+    <ul>
+        <li>Developed computer vision-based system for precision fertilizer dispensing over crops.</li>
+        <li>Achieved robust in-field stabilization and demonstrated reliable real-time operation.</li>
+    </ul>
+    <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank" class="project-btn">View Project</a>
+</div>
+
+<!-- Fault Detection in Power Systems -->
+<div class="card project-card">
+    <img src="ml_fault_detection.jpg" alt="ML Fault Prediction" class="project-img">
+    <h3 class="project-title">🔹 Fault Detection in Power Systems</h3>
+    <ul>
+        <li>Implemented DT, SVM, and ANN models to predict faults with 95% accuracy.</li>
+        <li>Enabled rapid diagnosis for improved reliability in complex power networks.</li>
+    </ul>
+    <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank" class="project-btn">View Code</a>
+</div>
+
+<!-- Autonomous Vehicle (AWS DeepRacer) -->
+<div class="card project-card">
+    <img src="deepracer_robot.jpg" alt="AWS DeepRacer Autonomous Car" class="project-img">
+    <h3 class="project-title">🔹 Autonomous Vehicle using SLAM & RL</h3>
+    <ul>
+        <li>Designed full pipeline: perception (LiDAR), mapping, planning, and control (PID & RL).</li>
+        <li>Integrated ROS2 for robust hallway navigation and obstacle avoidance on AWS DeepRacer robot.</li>
+    </ul>
+    <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank" class="project-btn">View Repository</a>
+</div>
+
         <!-- Contact -->
         <div class="card" id="contact">
             <h2>Contact</h2>
@@ -179,3 +235,4 @@
     </div>
 </body>
 </html>
+
