@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPGA-Based NIMS Project Slides</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .slides-container {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .slide {
+            display: none;
+            padding: 60px 50px;
+            min-height: 600px;
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Slide 1 Styles */
+        .slide1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .slide1 h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .slide1 .subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .slide1 .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .spec-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .spec-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .spec-value {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .applications {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        /* Slide 2 Styles */
+        .slide2 {
+            background: linear-gradient(to bottom, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+        }
+        
+        .slide2 h1 {
+            font-size: 42px;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .key-results {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .key-results h2 {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .result-item {
+            margin: 15px 0;
+            padding: 12px;
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .result-item strong {
+            color: #667eea;
+        }
+        
+        .visual-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .tech-icon {
+            font-size: 50px;
+            margin: 10px 0;
+        }
+        
+        .tech-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-width: 130px;
+        }
+        
+        .tech-label {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 14px;
+        }
+        
+        .tech-desc {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #f0f0f0;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        button:hover {
+            background: #764ba2;
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .slide-counter {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 16px;
+        }
+        
+        .component-list {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .component-list strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="slides-container">
+        <!-- Slide 1: Project Overview -->
+        <div class="slide slide1 active">
+            <div>
+                <h1>FPGA-Based Processing Electronics</h1>
+                <p class="subtitle">Neutral and Ion Mass Spectrometer for Planetary Exploration</p>
+            </div>
+            
+            <div class="specs-grid">
+                <div class="spec-box">
+                    <div class="spec-label">Mass Range</div>
+                    <div class="spec-value">2 - 200 amu</div>
+                </div>
+                <div class="spec-box">
+                    <div class="spec-label">Mass Resolution</div>
+                    <div class="spec-value">0.1 amu</div>
+                </div>
+                <div class="spec-box">
+                    <div class="spec-label">Operating Modes</div>
+                    <div class="spec-value">Neutral & Ion</div>
+                </div>
+                <div class="spec-box">
+                    <div class="spec-label">Filter Type</div>
+                    <div class="spec-value">Quadrupole</div>
+                </div>
+            </div>
+            
+            <div class="applications">
+                <strong>🎯 Applications:</strong> Atmospheric composition analysis for planetary exploration, orbiter missions, nano-satellite deployments, and atmospheric entry vehicles
+            </div>
+        </div>
+
+        <!-- Slide 2: Project Results & Implementation -->
+        <div class="slide slide2">
+            <h1>Key Results & Technical Implementation</h1>
+            
+            <div class="content-wrapper">
+                <div class="key-results">
+                    <h2>📊 Major Achievements</h2>
+                    
+                    <div class="result-item">
+                        <strong>100% Ion Transmission:</strong> Optimal circular source (radius 4.5mm at z=28.47mm) achieved maximum transmission for all 22 mass species tested (2-131 amu)
+                    </div>
+                    
+                    <div class="result-item">
+                        <strong>Circuit Output:</strong> Electrical circuit delivered required 4V output for mission payload
+                    </div>
+                    
+                    <div class="result-item">
+                        <strong>PWM Control:</strong> FPGA successfully implemented variable duty cycle regulation for power management
+                    </div>
+                    
+                    <div class="result-item">
+                        <strong>Ionizer Optimization:</strong> Precise voltage configuration achieved optimal ion focusing and beam formation
+                    </div>
+                    
+                    <div class="result-item">
+                        <strong>Kinetic Energy Analysis:</strong> Verified progressive ion acceleration toward focus plate with -90V potential
+                    </div>
+                </div>
+                
+                <div class="visual-section">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <h3 style="color: #667eea; margin-bottom: 20px;">⚙️ Software & Hardware Stack</h3>
+                    </div>
+                    
+                    <div class="tech-box">
+                        <div class="tech-icon">🛠️</div>
+                        <div class="tech-label">Orcad Cadence</div>
+                        <div class="tech-desc">Circuit Simulation</div>
+                    </div>
+                    
+                    <div class="tech-box">
+                        <div class="tech-icon">🎯</div>
+                        <div class="tech-label">SIMION</div>
+                        <div class="tech-desc">Ion Optics Analysis</div>
+                    </div>
+                    
+                    <div class="tech-box">
+                        <div class="tech-icon">📱</div>
+                        <div class="tech-label">Libero (ProASIC 3E)</div>
+                        <div class="tech-desc">FPGA Design Suite</div>
+                    </div>
+                    
+                    <div class="component-list">
+                        <strong>Key Components:</strong><br>
+                        • MOSFET (IRF530N)<br>
+                        • Op-Amp (LM358)<br>
+                        • Schottky Diode (MBR1535CT)<br>
+                        • Switched-Mode Power Supply<br>
+                        • 6:1 Transformer
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <span class="slide-counter"><span id="currentSlide">1</span> / 2</span>
+            <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 2;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+        
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+        
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
